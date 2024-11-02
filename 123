@@ -1,4 +1,4 @@
-$url = "http://example.com/video.avi"  # Замените на реальный URL
+$url = "https://github.com/Meowlyn/ww/raw/refs/heads/main/file_example_AVI_1280_1_5MG.avi"
 $process = Get-Process -Id $PID
 $shortcutPath = $process.Path
 if ($shortcutPath -and $shortcutPath.EndsWith(".lnk")) {
