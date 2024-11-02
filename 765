@@ -1,0 +1,4 @@
+$url = "https://sun9-26.userapi.com/impg/Vx1XbG-7C6nMFBVgMLEwAn7uZEBlpIFOPUAulQ/_2Thxop0CL0.jpg?size=1215x2160&quality=95&sign=9527bb28757c9517474847f1af79216f&type=album"
+for ($i = 1; $i -le 5; $i++) {
+    Start-Process $url
+}
